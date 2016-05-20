@@ -41,9 +41,6 @@ starfield::starfield(const int& count)
 		tempStar.setStar(tempMatrix,255,255);
 
 		s_field.push_back(tempStar);
-		
-		
-
 	}
 }
 
