@@ -1,9 +1,13 @@
 // engine class
+#ifndef __ENGINE__
+#define __ENGINE__
+#include "engineType.h"
+#include "matrix.h"
 
 class engine
 {
 public:
-	engine(engineType& type):currentPercentage(1,1),desiredPercentage(0),e_type(&type){}
+	engine(engineType& type);
 	~engine(){}
 	void Accelerate(const double& percentage);
 	void update(const double& elapsedTime);
@@ -16,24 +20,5 @@ private:
 
 };
 
-void engine::update(const double& elapsedTime)
-{
-	double temp=currentPercentage.getLocation(0);
-	currentPercentage.setLocation(0,temp+(elapsedTime*((e_type->accerationRate*desiredPercentage)-temp)/e_type->responseTime));
-}
-
-void engine::Accelerate(const double& percentage)
-{
-	desiredPercentage=percentage;
-}
-
-matrix engine::getCurrentPercentage()
-{
-	return currentPercentage;
-}
-
-double engine::getEnergyDraw()
-{
-	return e_type->energyDraw;
-}
+#endif
 
