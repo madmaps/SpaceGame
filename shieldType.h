@@ -1,8 +1,11 @@
 // shieldType Class
+#ifndef __SHIELDTYPE__
+#define __SHIELDTYPE__
 
 class shieldType
 {
 public:
+	char* name;
 	int price;
 	int shieldClass;
 	double strength;
@@ -10,3 +13,4 @@ public:
 	double regeneratetionRate;
 	double restoreTime;
 };
+#endif

@@ -1,66 +1,9 @@
-class gunType
-{
-public:
-	char* name;
-	int price;
-	int gunClass;
-	int damagePotential;
-	double rateOfFire;
-	double energyDraw;
-	double projectileSpeed;
-	int projectileRange;
-	int model;
-	int numberOfTextures;
-	int* textures;
-	matrix location;
-};
-
-class shieldType
-{
-public:
-	char* name;
-	int price;
-	int shieldClass;
-	double strength;
-	double energyDraw;
-	double regeneratetionRate;
-	double restoreTime;
-};
-
-class engineType
-{
-public:
-	engineType();
-	~engineType();
-	char* name;
-	int price;
-	int engineClass;
-	double accerationRate;
-	double topSpeed;
-	double energyDraw;
-	double responseTime;
-};
-
-engineType::engineType()
-{
-
-}
-engineType::~engineType()
-{}
-
-class turnThrusterType
-{
-public:
-	char* name;
-	int thrusterClass;
-	int price;
-	double yawRateOfTurn;
-	double pitchRateOfTurn;
-	double rollRateOfTurn;
-	double responseTime;
-	double energyDraw;
-};
-
+#ifndef __SHIP__
+#define __SHIP__
+#include "gunType.h"
+#include "shieldType.h"
+#include "engineType.h"
+#include "turnThrusterType.h"
 class energyDistributerType
 {
 public:

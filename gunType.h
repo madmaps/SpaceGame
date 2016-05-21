@@ -1,8 +1,11 @@
 // gunType Class
+#ifndef __GUNTYPE__
+#define __GUNTYPE__
 
 class gunType
 {
 public:
+	char* name;
 	int price;
 	int gunClass;
 	int damagePotential;
@@ -10,5 +13,9 @@ public:
 	double energyDraw;
 	double projectileSpeed;
 	int projectileRange;
+	int model;
+	int numberOfTextures;
+	int* textures;
 	matrix location;
 };
+#endif

@@ -1,8 +1,10 @@
 //turnThrusterTypeClass
-
+#ifndef __TURNTHRUSTERTYPE__
+#define __TURNTHRUSTERTYPE__
 class turnThrusterType
 {
 public:
+	char* name;
 	int thrusterClass;
 	int price;
 	double yawRateOfTurn;
@@ -11,3 +13,4 @@ public:
 	double responseTime;
 	double energyDraw;
 };
+#endif

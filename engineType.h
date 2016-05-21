@@ -1,10 +1,13 @@
 // engineType Class
+#ifndef __ENGINETYPE__
+#define __ENGINETYPE__
 
 class engineType
 {
 public:
 	engineType();
 	~engineType();
+	char* name;
 	int price;
 	int engineClass;
 	double accerationRate;
@@ -12,10 +15,4 @@ public:
 	double energyDraw;
 	double responseTime;
 };
-
-engineType::engineType()
-{
-
-}
-engineType::~engineType()
-{}
+#endif
