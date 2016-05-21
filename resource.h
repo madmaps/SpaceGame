@@ -1,5 +1,8 @@
 // Matthew Applin
 // resource
+#ifndef __RESOURCE__
+#define __RESOURCE__
+#include "resourceType.h"
 
 class resource
 {
@@ -13,27 +16,4 @@ private:
 	resourceType* r_type;
 	double amount;
 };
-
-resource::resource(resourceType& info,const double& quantity)
-{
-	r_type=&info;
-	amount=quantity;
-}
-
-resource::~resource()
-{}
-
-resourceType* resource::getResource()
-{
-	return r_type;
-}
-
-double resource::getAmount()
-{
-	return amount;
-}
-
-void resource::setAmount(const double& info)
-{
-	amount=info;
-}
+#endif

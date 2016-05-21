@@ -1,5 +1,9 @@
 // Matthew Applin
 // resourceSlot class
+#ifndef __RESOURCESLOT__
+#define __RESOURCESLOT__
+#include "resourceType.h"
+#include "resource.h"
 
 class resourceSlot
 {
@@ -16,23 +20,5 @@ private:
 	resource currentResource;
 };
 
-resourceSlot::resourceSlot(resourceType& info,const double& quantity):currentResource(info,quantity)
-{
-	currentProductionRate=info.standardProductionRate;
-}
-
-resourceSlot::~resourceSlot()
-{}
-
-
-
-resource* resourceSlot::getResource()
-{
-	return &currentResource;
-}
-
-double resourceSlot::getProductionRate()
-{
-	return currentProductionRate;
-}
+#endif
 

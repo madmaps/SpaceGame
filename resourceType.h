@@ -1,5 +1,8 @@
 // Matthew Applin
 // resourceType class
+#ifndef __RESOURCETYPE__
+#define __RESOURCETYPE__
+#include <vector>
 
 class resourceType
 {
@@ -21,3 +24,5 @@ public:
 	double minProductionRate;
 	resourceType* resourceMultiplyer;
 };
+
+#endif
