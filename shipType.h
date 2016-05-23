@@ -1,25 +1,32 @@
 // shipType class
+#ifndef __SHIPTYPE__
+#define __SHIPTYPE__
 
 class shipType
 {
 public:
+	char* name;
 	int shipClass;
-	int price;
+	int engineCapability;
 	int weaponCapablity;
-	int numberOfGunMounts;
+	int turnThrusterCapability;
 	int shieldCapability;
-	int numberOfShields;
 	int energyCapability;
 	int solarRechargeCapability;
-	int turnThrusterCapability;
-	int engineCapability;
 	int numberOfEngineMounts;
-	int cargoSize;
+	int numberOfGunMounts;
+	int numberOfShields;
 	int passengerQuarterSize;
+	int cargoSize;
 	int hullStrength;
-	int shipRadius;
+	int price;
 	double shipMass;
+	int shipRadius;
+	int model;
+	int numberOfTextures;
+	unsigned int* textures;
 	std::vector<matrix> gunMountLocation;
-
-
+	std::vector<matrix> gunMountUpDirection;
 };
+
+#endif

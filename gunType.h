@@ -1,6 +1,7 @@
 // gunType Class
 #ifndef __GUNTYPE__
 #define __GUNTYPE__
+#include "matrix.h"
 
 class gunType
 {

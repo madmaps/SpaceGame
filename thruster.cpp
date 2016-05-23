@@ -36,4 +36,3 @@ double turnThruster::getEnergyDraw()
 {
 	return t_thruster->energyDraw;
 }
-

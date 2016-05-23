@@ -1,5 +1,8 @@
 // Matthew Applin
 // solarRechargerClass
+#ifndef __SOLARRECHARGER__
+#define __SOLARRECHARGER__
+#include "solarRechargerType.h"
 
 class solarRecharger
 {
@@ -10,16 +13,4 @@ public:
 private:
 	solarRechargerType* s_type;
 };
-
-solarRecharger::solarRecharger(solarRechargerType& info)
-{
-	s_type=&info;
-}
-
-double solarRecharger::getCharge()
-{
-	return s_type->rechargeRate;
-}
-
-solarRecharger::~solarRecharger()
-{}
+#endif

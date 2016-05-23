@@ -1,5 +1,4 @@
 #include "shield.h"
-
 shield::shield(shieldType& info)
 {
 	s_type=&info;

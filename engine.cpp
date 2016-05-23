@@ -1,10 +1,5 @@
 #include "engine.h"
 
-engine::engine(engineType& type):e_type(&type),currentPercentage(1,1)
-{
-	desiredPercentage=0;
-}
-
 void engine::update(const double& elapsedTime)
 {
 	double temp=currentPercentage.getLocation(0);
