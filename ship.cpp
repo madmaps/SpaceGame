@@ -1,14 +1,14 @@
 #include "ship.h"
 #include "math.h"
 
-ship::ship():numberOfShields(0),numberOfGuns(0),numberOfEngines(0),
+ship::ship():s_ship(0),numberOfShields(0),numberOfGuns(0),numberOfEngines(0),
 			 amountInCargo(0),numberOfTypesInCargo(0),passengers(0),hull(0),
-			 docked(0),s_distributer(0),s_recharger(0),s_thrusters(0),s_ship(0),maxSpeed(0),timeChange(0),shipSpeed(0)
+			 docked(0),s_distributer(0),s_recharger(0),s_thrusters(0),shipSpeed(0),maxSpeed(0),timeChange(0)
 {}
 
-ship::ship(shipType& info):numberOfShields(0),numberOfGuns(0),numberOfEngines(0),
+ship::ship(shipType& info):s_ship(&info),numberOfShields(0),numberOfGuns(0),numberOfEngines(0),
 			 amountInCargo(0),numberOfTypesInCargo(0),passengers(0),hull(0),
-			 docked(0),s_distributer(0),s_recharger(0),s_thrusters(0),s_ship(&info),maxSpeed(0),timeChange(0)
+			 docked(0),s_distributer(0),s_recharger(0),s_thrusters(0),shipSpeed(0),maxSpeed(0),timeChange(0)
 {}
 
 void ship::addShipType(shipType& info)
@@ -45,7 +45,6 @@ void ship::update()
 {
 	matrix tempMatrix(1,1);
 	double temp[1]={0};
-	double energyTemp=0;
 	int i=0;
 	
 	while(i<numberOfEngines)
@@ -163,7 +162,7 @@ void ship::turn(RotationType r_type,const double& percentage)
 {
 	if(s_distributer!=0)
 	{
-		if(s_thrusters!=0 && s_distributer->removeEnergy(s_thrusters->getEnergyDraw()*abs(percentage)*timeChange*10))
+		if(s_thrusters!=0 && s_distributer->removeEnergy(s_thrusters->getEnergyDraw()*fabs(percentage)*timeChange*10))
 		{
 			s_thrusters->turn(r_type,percentage);
 		}
@@ -200,7 +199,7 @@ void ship::Accelerate(const double& percentage)
 		int i=0;
 		while(i<numberOfEngines)
 		{
-			if(s_distributer->removeEnergy(s_engines[i].getEnergyDraw()*abs(percentage)*timeChange*10))
+			if(s_distributer->removeEnergy(s_engines[i].getEnergyDraw()*fabs(percentage)*timeChange*10))
 			{
 				s_engines[i].Accelerate(percentage);
 			}
@@ -231,9 +230,9 @@ void ship::fire()
 		{
 			if(s_guns[i].fire(temp) && s_distributer->removeEnergy(s_guns[i].getEnergyDraw()))
 			{
-				matrix tempMatrix0 =Orientation*s_guns[i].getLocation();
-				//temp.setLocation(tempMatrix);
-				//temp.setLocation(Location+(Orientation*s_ship->gunMountLocation[i])+(Orientation*s_guns[i].getLocation()));
+				//matrix tempMatrix0 =Orientation*s_guns[i].getLocation();
+				//temp.setLocation(tempMatrix0);
+				temp.setLocation(Location+(Orientation*s_ship->gunMountLocation[i])+(Orientation*s_guns[i].getLocation()));
 				temp.setSpeedDirection(Orientation,s_guns[i].getSpeed()+shipSpeed);
 				temp.setSector(sectorX,sectorY,sectorZ);
 				temp.setMaxSectors(maxX,maxY,maxZ,sectorSize);

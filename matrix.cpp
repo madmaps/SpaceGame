@@ -1,5 +1,11 @@
 #include "matrix.h"
 
+matrix::matrix(const int& rows,const int& cols):m_rows(rows),m_cols(cols)
+{
+	m_matrix.assign(rows*cols,0);
+}
+
+
 matrix::matrix(const int& rows,const int& cols,const double info[])
 {
 	m_rows=rows;
@@ -11,9 +17,29 @@ matrix::matrix(const int& rows,const int& cols,const double info[])
 			m_matrix.push_back(info[(i*rows)+j]);
 		}
 	}
-};
+}
 
-matrix matrix::operator+(matrix& rhs)
+
+matrix::matrix(const matrix& inMatrix)
+{
+	m_rows = inMatrix.m_rows;
+	m_cols = inMatrix.m_cols;
+	m_matrix = inMatrix.m_matrix;
+}
+
+matrix& matrix::operator=(const matrix& rhs)
+{
+	if(this==&rhs)
+	{
+		return *this;
+	}
+	m_rows = rhs.m_rows;
+	m_cols = rhs.m_cols;
+	m_matrix = rhs.m_matrix;
+	return *this;
+}
+
+matrix matrix::operator+(const matrix& rhs)
 {
 	
 	if(m_rows!=rhs.getRows() || m_cols!=rhs.getCols())
@@ -33,7 +59,7 @@ matrix matrix::operator+(matrix& rhs)
 
 }
 
-matrix matrix::operator-(matrix& rhs)
+matrix matrix::operator-(const matrix& rhs)
 {
 	
 	if(m_rows!=rhs.getRows() || m_cols!=rhs.getCols())
@@ -53,7 +79,7 @@ matrix matrix::operator-(matrix& rhs)
 
 }
 
-matrix matrix::operator*(matrix& rhs)
+matrix matrix::operator*(const matrix& rhs)
 {
 	if(m_cols!=rhs.getRows())
 	{

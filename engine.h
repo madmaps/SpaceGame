@@ -7,7 +7,7 @@
 class engine
 {
 public:
-	engine(engineType& type):currentPercentage(1,1),desiredPercentage(0),e_type(&type){}
+	engine(engineType& type):e_type(&type),currentPercentage(1,1),desiredPercentage(0){}
 	~engine(){}
 	void Accelerate(const double& percentage);
 	void update(const double& elapsedTime);
